@@ -11,6 +11,9 @@ importers:
       '@tiptap/extension-bubble-menu':
         specifier: ^2.11.2
         version: 2.11.2(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))(@tiptap/pm@2.11.2)
+      '@tiptap/extension-bullet-list':
+        specifier: ^2.11.2
+        version: 2.11.2(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))
       '@tiptap/extension-document':
         specifier: ^2.11.2
         version: 2.11.2(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))
@@ -20,6 +23,12 @@ importers:
       '@tiptap/extension-heading':
         specifier: ^2.11.2
         version: 2.11.2(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))
+      '@tiptap/extension-list-item':
+        specifier: ^2.11.2
+        version: 2.11.2(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))
+      '@tiptap/extension-placeholder':
+        specifier: ^2.11.3
+        version: 2.11.3(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))(@tiptap/pm@2.11.2)
       '@tiptap/pm':
         specifier: ^2.11.2
         version: 2.11.2
@@ -465,6 +474,12 @@ packages:
     resolution: {integrity: sha512-iydTjeZbPJuqctOaAx7QebLPvz9J/hBxPptuhe4GZmqInknAk7+SFJagYeGNb14wfXKOvDZ9DMqv6mBiqSA90Q==}
     peerDependencies:
       '@tiptap/core': ^2.7.0
+
+  '@tiptap/extension-placeholder@2.11.3':
+    resolution: {integrity: sha512-wXNcqsxkc+85NPrNpA/iuLa86RL2oOiOGWheJoIjtW2m9BEJSDsyHdUa9Nxwm28+PgonzG1uUfEv4JEzT5m4xg==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
 
   '@tiptap/extension-strike@2.11.2':
     resolution: {integrity: sha512-n/rznmhqFlENGSlFY9t3pWnWzSmvDpUj3sjVhdpYteis+OCzabN9+c5KdQTBPMjtwRuRleQiKWnHmxvif0heEg==}
@@ -2281,6 +2296,11 @@ snapshots:
   '@tiptap/extension-paragraph@2.11.2(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))':
     dependencies:
       '@tiptap/core': 2.11.2(@tiptap/pm@2.11.2)
+
+  '@tiptap/extension-placeholder@2.11.3(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))(@tiptap/pm@2.11.2)':
+    dependencies:
+      '@tiptap/core': 2.11.2(@tiptap/pm@2.11.2)
+      '@tiptap/pm': 2.11.2
 
   '@tiptap/extension-strike@2.11.2(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))':
     dependencies:
