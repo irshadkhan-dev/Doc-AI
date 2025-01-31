@@ -1,6 +1,5 @@
-"use client";
-import Testpage from "@/components/Testpage";
 import React from "react";
+import Testpage from "@/components/Testpage";
 
 const page = () => {
   return <Testpage />;

@@ -1,13 +1,56 @@
 "use client";
-import React, { useCallback } from "react";
-import { EditorContent, FloatingMenu, BubbleMenu } from "@tiptap/react";
-import useEditor from "@/lib/hook";
+import React, { useCallback, useRef } from "react";
+import {
+  EditorContent,
+  FloatingMenu,
+  BubbleMenu,
+  Content,
+  useEditor,
+} from "@tiptap/react";
+
 import { EditorActions } from "@/app/types/editors";
 import { EditorToolItems } from "@/lib/Constants";
 import MenuBtn from "./MenuBtn";
+import StarterKit from "@tiptap/starter-kit";
 
-const Editor = () => {
-  const editor = useEditor();
+import BulletList from "@tiptap/extension-bullet-list";
+import Heading from "@tiptap/extension-heading";
+import ListItem from "@tiptap/extension-list-item";
+import Placeholder from "@tiptap/extension-placeholder";
+
+const Editor = ({
+  content,
+  onUpdate,
+}: {
+  content: Content;
+  onUpdate: (html: string) => void;
+}) => {
+  const timeRef = useRef<NodeJS.Timeout | null>(null);
+
+  const editor = useEditor({
+    extensions: [
+      StarterKit.configure({ heading: false }),
+      Heading.configure({ levels: [1, 2, 3] }),
+      BulletList.configure({ keepMarks: true }),
+      ListItem,
+      Placeholder.configure({
+        placeholder: "Begin writing your document..",
+      }),
+    ],
+    immediatelyRender: false,
+    injectCSS: true,
+    content,
+    onUpdate: ({ editor }) => {
+      if (timeRef.current) {
+        clearTimeout(timeRef.current);
+      }
+
+      timeRef.current = setTimeout(() => {
+        onUpdate(editor.getHTML());
+      }, 3000);
+    },
+    autofocus: "end",
+  });
 
   const handleAction = useCallback(
     (action: EditorActions) => {
